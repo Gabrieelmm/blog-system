@@ -1,0 +1,35 @@
+
+{{#if user}}
+
+{{else}}
+
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+  <strong>Bem-vindo ao <strong class="blog-name"></strong>!</strong> <span id="desc"></span> 
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<hr>
+{{/if}}
+<h1 class="mb-4">Página inicial</h1>
+<hr>
+<h5>Postagens recentes</h5>
+
+{{#each postagens}}
+<div class="card mt-4" id="p">
+  <div class="card-body">
+   
+    
+    <h3>{{titulo}}</h3>
+    <p>{{descricao}}</p>
+    <a href="/postagem/{{slug}}">
+      <button class="btn btn-primary">Leia mais...</button>
+    </a>
+    <hr>
+     <small>Categoria: {{categoria.nome}}</small> <br>
+     <small>Data: {{date}}</small>
+  </div>
+</div>
+{{else}}
+<h5>Nenhuma postagem encontrada.</h5>
+{{/each}}
